@@ -1,0 +1,30 @@
+name: Deploy  Projet
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: install Node JS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: install Dependencies
+        run: npm ci
+      - name: run test
+        run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: indstall node JS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: install dependencies
+        run: npm ci
+      - name: deploy
+        run: echo 'deplooy ...:)'
